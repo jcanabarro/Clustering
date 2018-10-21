@@ -1,3 +1,6 @@
+import copy
+import random
+
 import numpy as np
 import pandas as pd
 
@@ -78,7 +81,10 @@ def test_kmeans(db, k=2):
 
 
 def test_agnes(db, k=2):
-    agnes = AgnesMax(db, k)
+    db = copy.deepcopy(db)
+    random.shuffle(db)
+
+    agnes = AgnesMax(db[:250], k)
     clusters = agnes.cluster()
     plot_clusters(clusters)
 
@@ -87,7 +93,9 @@ if __name__ == '__main__':
     db = load_db('db/Banana.csv')
     db = format_banana_db(db)
 
-    dbscan = DBScan(db, 1.25, 7)
-    clusters = dbscan.cluster()
-    plot_clusters(clusters)
-    print([len(c) for c in clusters])
+    # dbscan = DBScan(db, 1.25, 7)
+    # clusters = dbscan.cluster()
+    # plot_clusters(clusters)
+    # print([len(c) for c in clusters])
+    # test_kmeans(db)
+    test_agnes(db)
