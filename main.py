@@ -84,7 +84,7 @@ def test_agnes(db, k=2):
     db = copy.deepcopy(db)
     random.shuffle(db)
 
-    agnes = AgnesMax(db[:250], k)
+    agnes = AgnesMax(db[:100], k)
     clusters = agnes.cluster()
     plot_clusters(clusters)
 
