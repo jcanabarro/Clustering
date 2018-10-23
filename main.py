@@ -28,9 +28,9 @@ def test_agnes(db, k=2):
     db = copy.deepcopy(db)
     random.shuffle(db)
 
-    agnes = AgnesMax(db[:1000], k)
+    agnes = AgnesMax(db[:300], k)
     clusters = agnes.cluster()
-    # plot_clusters(clusters)
+    plot_clusters(clusters)
 
 
 def test_dbscan(db, radius=0.3, min_pts=50):
@@ -46,6 +46,6 @@ if __name__ == '__main__':
     db = load_db('db/Banana.csv')
     db = format_banana_db(db)
 
-    # test_dbscan(db)
+    test_dbscan(db)
     # test_kmeans(db)
-    test_agnes(db)
+    # test_agnes(db)
