@@ -3,4 +3,6 @@ db/
 __pycache__/
 venv/
 .vscode/
-
+cAgnes.cpython-35m-x86_64-linux-gnu.so
+profile.log
+build/temp.linux-x86_64-3.5/cAgnes.o
